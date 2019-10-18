@@ -1,0 +1,22 @@
+<h2 align="center">Available Courses</h2>
+<div class="row">
+  <% @courses.each do |course| %>
+   <div class="col s6 m6">
+     <div class="card blue-grey darken-1">
+       <div class="card-content white-text">
+         <span class="card-title"><%= course.name%></span>
+         <p><%= course.description %></p>
+       </div>
+       <div class="card-action">
+         <% if logged_admin? && user_admin.admin? %>
+           <%= link_to "Edit", edit_course_path(course) %>
+           <%= link_to "Delete", course_path(course), method: :delete, data: { confirm: "Are you sure to delete this course?" } %>
+         <% else %>
+           <a href="#">Enroll</a>
+           <a href="#">Info</a>
+         <% end %>
+       </div>
+     </div>
+   </div>
+  <% end %>
+</div>
