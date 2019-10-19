@@ -3,10 +3,11 @@ Rails.application.routes.draw do
     root 'courses#index'
     get 'courses/new', to: 'courses#new'
     get 'about', to: 'courses#about'
+    resources :users, only: [:new, :create]
     resources :courses, except: [:index, :new]
-    get 'login', to: 'users#new'
-    post 'login', to: 'users#create'
-    delete 'logout', to: 'users#destroy'
+    get 'login', to: 'admins#new'
+    post 'login', to: 'admins#create'
+    delete 'logout', to: 'admins#destroy'
     resources :students
     get 'loginstudent', to: 'sessions#new'
     post 'loginstudent', to: 'sessions#create'

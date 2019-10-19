@@ -11,8 +11,9 @@ class ApplicationController < ActionController::Base
   end
 
   def require_admin
-    if !logged_admin?
+    if !logged_admin? || !user_admin.admin?
       flash[:notice] = "Only admin can perform those actions"
+      redirect_to root_path
     end
   end
 

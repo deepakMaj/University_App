@@ -34,10 +34,11 @@
       <% if logged_admin? && !logged_in? %>
       <div class="center">
         <%= image_tag("photo.png", class: "circle right responsive-img style")%>
-        <h5 class="right">Welcome Admin <%= User.first.name %></h5>
+        <h5 class="right">Welcome Admin <%= user_admin.name %></h5>
       </div>
       <% else %>
         <a href="#" class="brand-logo right">Tech University</a>
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
       <% end %>
       <ul id="nav-mobile" class="left hide-on-med-and-down">
         <li><%= link_to "Courses", root_path%></li>
