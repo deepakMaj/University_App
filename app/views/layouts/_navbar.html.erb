@@ -38,7 +38,13 @@
       </div>
       <% else %>
         <a href="#" class="brand-logo right">Tech University</a>
-        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+      <% end %>
+      <% if logged_admin? && !logged_in? %>
+        <a href="#" data-target="mobile-demo1" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+      <% elsif logged_in? && !logged_admin? %>
+        <a href="#" data-target="mobile-demo2" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+      <% else %>
+        <a href="#" data-target="mobile-demo3" class="sidenav-trigger"><i class="material-icons">menu</i></a>
       <% end %>
       <ul id="nav-mobile" class="left hide-on-med-and-down">
         <li><%= link_to "Courses", root_path%></li>
@@ -51,6 +57,36 @@
         <% else %>
           <li><a class="dropdown-trigger" href="#!" data-target="dropdown3">Accounts<i class="material-icons right">arrow_drop_down</i></a></li>
         <% end %>
+      </ul>
+      <!-- Dropdown Structure -->
+      <ul class="sidenav" id="mobile-demo1">
+        <li><%= link_to "Create Course", courses_new_path %></li>
+        <li class="divider"></li>
+        <li><%= link_to "Logout", logout_path, method: :delete %></li>
+        <li class="divider"></li>
+        <li><a href="https://www.github.com/deepakMaj/University_App">Help</a></li>
+        <li class="divider"></li>
+        <li><%= link_to "About", about_path %></li>
+      </ul>
+      <ul class="sidenav" id="mobile-demo2">
+        <% if logged_in? %>
+          <li><%= link_to "Profile", student_path(current_student) %></li>
+          <li class="divider"></li>
+          <li><%= link_to "Edit Profile", edit_student_path(current_student) %></li>
+          <li class="divider"></li>
+        <% end %>
+        <li><%= link_to "Logout", logoutstudent_path, method: :delete %></li>
+        <li class="divider"></li>
+        <li><a href="https://www.github.com/deepakMaj/University_App">Help</a></li>
+      </ul>
+      <ul class="sidenav" id="mobile-demo3">
+        <li><%= link_to "Login", loginstudent_path %></li>
+        <li class="divider"></li>
+        <li><%= link_to "Login(Admin)", login_path %></li>
+        <li class="divider"></li>
+        <li><%= link_to "Sign Up", new_student_path %></li>
+        <li class="divider"></li>
+        <li><%= link_to "About", about_path %></li>
       </ul>
     </div>
   </div>
