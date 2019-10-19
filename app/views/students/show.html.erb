@@ -1,0 +1,35 @@
+<div class="row">
+  <div class="col s12">
+    <h1 align="center">Profile</h1>
+  </div>
+</div>
+
+  <div class="row">
+    <div class="col s6 offset-m3">
+      <div class="card">
+        <div class="card-image waves-effect waves-block waves-light">
+          <%= image_tag("pic.jpg", class: "activator")%>
+        </div>
+        <div class="card-content grey lighten-2">
+          <span class="card-title activator grey-text text-darken-4"><strong><%= @student.name %></strong><i class="material-icons right">more_vert</i></span>
+        </div>
+        <div class="card-reveal green lighten-3">
+          <span class="card-title grey-text text-darken-4"><strong>Description</strong><i class="material-icons right">close</i></span>
+          <p>
+           <strong>
+            Courses Enrolled :
+            <% if @student.courses.empty? %>
+             None
+            <% else %>
+             <ul>
+               <% @student.courses.each do |course| %>
+                 <li><%= course.name %></li>
+               <% end %>
+             </ul>
+            <% end %>
+           </strong>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>

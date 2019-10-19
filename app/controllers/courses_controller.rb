@@ -1,7 +1,7 @@
 class CoursesController < ApplicationController
 
-  before_action :set_course, only: [:edit, :update, :destroy]
-  before_action :require_admin, except: [:index, :about]
+  before_action :set_course, only: [:edit, :update, :destroy, :show]
+  before_action :require_admin, except: [:index, :about,:show]
 
   def index
     @courses = Course.all
@@ -33,7 +33,9 @@ class CoursesController < ApplicationController
     else
       render 'edit'
     end
+  end
 
+  def show
   end
 
   def destroy
@@ -48,7 +50,7 @@ class CoursesController < ApplicationController
   private
 
     def course_params
-      params.require(:course).permit(:name, :description)
+      params.require(:course).permit(:name, :description, :embedcode)
     end
 
     def set_course

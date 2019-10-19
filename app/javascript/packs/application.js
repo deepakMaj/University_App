@@ -13,9 +13,7 @@ import 'materialize-css/dist/js/materialize'
 
 $(document).on('turbolinks:load', function(){
   $(".dropdown-trigger").dropdown();
-  $('.sidenav').sidenav();
   $('#close').fadeOut(4000);
-  $('#textarea1').val('');
   M.textareaAutoResize($('#textarea1'));
 })
 

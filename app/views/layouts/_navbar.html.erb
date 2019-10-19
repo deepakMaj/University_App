@@ -9,46 +9,47 @@
   <li><%= link_to "About", about_path %></li>
 </ul>
 <ul id="dropdown2" class="dropdown-content">
-  <li><a href="#!">Login</a></li>
+  <% if logged_in? %>
+    <li><%= link_to "Profile", student_path(current_student) %></li>
+    <li class="divider"></li>
+    <li><%= link_to "Edit Profile", edit_student_path(current_student) %></li>
+    <li class="divider"></li>
+  <% end %>
+  <li><%= link_to "Logout", logoutstudent_path, method: :delete %></li>
+  <li class="divider"></li>
+  <li><a href="https://www.github.com/deepakMaj/University_App">Help</a></li>
+</ul>
+<ul id="dropdown3" class="dropdown-content">
+  <li><%= link_to "Login", loginstudent_path %></li>
   <li class="divider"></li>
   <li><%= link_to "Login(Admin)", login_path %></li>
   <li class="divider"></li>
-  <li><a href="#!">Sign Up</a></li>
-  <li class="divider"></li>
-  <li><%= link_to "About", about_path %></li>
-</ul>
-<ul id="dropdown1" class="dropdown-content">
-  <li><a href="#!">Login</a></li>
-  <li class="divider"></li>
-  <li><a href="#!">Sign Up</a></li>
+  <li><%= link_to "Sign Up", new_student_path %></li>
   <li class="divider"></li>
   <li><%= link_to "About", about_path %></li>
 </ul>
 <nav class="navbar">
   <div class="container">
     <div class="nav-wrapper">
-      <% if logged_admin? %>
+      <% if logged_admin? && !logged_in? %>
       <div class="center">
         <%= image_tag("photo.png", class: "circle right responsive-img style")%>
-        <h5 class="right">Welcome <%= User.first.name %></h5>
+        <h5 class="right">Welcome Admin <%= User.first.name %></h5>
       </div>
       <% else %>
         <a href="#" class="brand-logo right">Tech University</a>
       <% end %>
       <ul id="nav-mobile" class="left hide-on-med-and-down">
         <li><%= link_to "Courses", root_path%></li>
-        <li><a href="#">Enrollements</a></li>
+        <li><%= link_to "Students", students_path %></li>
         <!-- Dropdown Trigger -->
-        <% if logged_admin? %>
+        <% if logged_admin? && !logged_in? %>
           <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Actions<i class="material-icons right">arrow_drop_down</i></a></li>
+        <% elsif logged_in? && !logged_admin? %>
+          <li><a class="dropdown-trigger" href="#!" data-target="dropdown2">Actions<i class="material-icons right">arrow_drop_down</i></a></li>
         <% else %>
-          <li><a class="dropdown-trigger" href="#!" data-target="dropdown2">Accounts<i class="material-icons right">arrow_drop_down</i></a></li>
+          <li><a class="dropdown-trigger" href="#!" data-target="dropdown3">Accounts<i class="material-icons right">arrow_drop_down</i></a></li>
         <% end %>
-      </ul>
-      <ul class="sidenav" id="mobile-demo">
-        <li><%= link_to "Courses", root_path%></li>
-        <li><a href="#">Enrollements</a></li>
-        <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Accounts<i class="material-icons right">arrow_drop_down</i></a></li>
       </ul>
     </div>
   </div>
