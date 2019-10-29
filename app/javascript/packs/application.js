@@ -15,9 +15,8 @@ $(document).on('turbolinks:load', function(){
   $('.sidenav').sidenav();
   $(".dropdown-trigger").dropdown();
   $('#close').fadeOut(4000);
-  M.textareaAutoResize($('#textarea1'));
-})
 
+})
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference

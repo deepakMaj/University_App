@@ -32,19 +32,19 @@
   <div class="container">
     <div class="nav-wrapper">
       <% if logged_admin? && !logged_in? %>
+        <a href="#" data-target="mobile-demo1" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+      <% elsif logged_in? && !logged_admin? %>
+        <a href="#" data-target="mobile-demo2" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+      <% else %>
+        <a href="#" data-target="mobile-demo3" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+      <% end %>
+      <% if logged_admin? && !logged_in? %>
       <div class="center">
         <%= image_tag("photo.png", class: "circle right responsive-img style")%>
         <h5 class="right">Welcome Admin <%= user_admin.name %></h5>
       </div>
       <% else %>
         <a href="#" class="brand-logo right">Tech University</a>
-      <% end %>
-      <% if logged_admin? && !logged_in? %>
-        <a href="#" data-target="mobile-demo1" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-      <% elsif logged_in? && !logged_admin? %>
-        <a href="#" data-target="mobile-demo2" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-      <% else %>
-        <a href="#" data-target="mobile-demo3" class="sidenav-trigger"><i class="material-icons">menu</i></a>
       <% end %>
       <ul id="nav-mobile" class="left hide-on-med-and-down">
         <li><%= link_to "Courses", root_path%></li>
@@ -60,16 +60,20 @@
     </div>
   </div>
 </nav>
+
 <!-- Dropdown Structure -->
-<ul class="sidenav red lighten-3" id="mobile-demo1">
+<ul id="mobile-demo1" class="sidenav grey lighten-2">
   <li><%= link_to "Courses", root_path%></li>
   <li><%= link_to "Students", students_path %></li>
   <li><%= link_to "Create Course", courses_new_path %></li>
+  <li class="divider"></li>
   <li><%= link_to "Logout", logout_path, method: :delete %></li>
+  <li class="divider"></li>
   <li><a href="https://www.github.com/deepakMaj/University_App">Help</a></li>
+  <li class="divider"></li>
   <li><%= link_to "About", about_path %></li>
 </ul>
-<ul class="sidenav red lighten-3" id="mobile-demo2">
+<ul class="sidenav grey lighten-2" id="mobile-demo2">
   <li><%= link_to "Courses", root_path%></li>
   <li><%= link_to "Students", students_path %></li>
   <% if logged_in? %>
@@ -79,7 +83,7 @@
   <li><%= link_to "Logout", logoutstudent_path, method: :delete %></li>
   <li><a href="https://www.github.com/deepakMaj/University_App">Help</a></li>
 </ul>
-<ul class="sidenav red lighten-3" id="mobile-demo3">
+<ul class="sidenav grey lighten-2" id="mobile-demo3">
   <li><%= link_to "Courses", root_path%></li>
   <li><%= link_to "Students", students_path %></li>
   <li><%= link_to "Login", loginstudent_path %></li>
