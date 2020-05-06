@@ -15,7 +15,6 @@ class StudentsController < ApplicationController
   def create
     @student = Student.new(student_params)
     if @student.save
-      session[:student_id] = @student.id
       flash[:notice] = "Welcome to the Tech University #{@student.name}"
       redirect_to loginstudent_path
     else

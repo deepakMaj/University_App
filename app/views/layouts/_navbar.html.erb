@@ -17,7 +17,7 @@
       <% else %>
         <a class="brand-logo right">Tech University</a>
       <% end %>
-      <ul class="right hide-on-med-and-down">
+      <ul class="left hide-on-med-and-down">
         <li><%= link_to "Courses", root_path%></li>
         <li><%= link_to "Students", students_path %></li>
         <% if logged_admin? && !logged_in? %>
@@ -44,9 +44,9 @@
           <li class="divider"></li>
           <li><%= link_to "Edit Profile", edit_student_path(current_student) %></li>
           <li class="divider"></li>
+          <li><%= link_to "Logout", logoutstudent_path, method: :delete %></li>
+          <li class="divider"></li>
         <% end %>
-        <li><%= link_to "Logout", logoutstudent_path, method: :delete %></li>
-        <li class="divider"></li>
         <li><a href="https://www.github.com/deepakMaj/University_App">Help</a></li>
       </ul>
       <ul id="dropdown3" class="dropdown-content">
