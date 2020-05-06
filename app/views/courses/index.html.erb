@@ -1,9 +1,9 @@
 <h2 align="center">Available Courses</h2>
 <div class="row">
   <% @courses.each do |course| %>
-   <div class="col s6 s6">
+   <div class="col s9 m6 offset-s2">
      <div class="card wid blue-grey darken-1">
-       <div class="card-content hei white-text">
+       <div class="card-content white-text">
          <span class="card-title"><%= course.name%></span>
          <p><%= course.description %></p>
        </div>

@@ -11,12 +11,11 @@ require("jquery")
 
 import 'materialize-css/dist/js/materialize'
 
-$(document).on('turbolinks:load', function(){
+$(document).on('ready turbolinks:load', function(){
   $('.sidenav').sidenav();
   $(".dropdown-trigger").dropdown();
   $('#close').fadeOut(4000);
-
-})
+});
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
