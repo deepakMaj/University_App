@@ -11,12 +11,15 @@ require("jquery")
 
 import 'materialize-css/dist/js/materialize'
 
-$(document).on('ready turbolinks:load', function(){
-  $('.sidenav').sidenav();
+$(document).on('turbolinks:load', function(){
   $(".dropdown-trigger").dropdown();
   $('#close').fadeOut(4000);
 });
 
+$(document).on('DOMContentLoaded',function(){
+  $('.sidenav').click(function(){setTimeout(function(){location.reload()}, 1000)});
+  $('.sidenav').sidenav();
+})
 
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)

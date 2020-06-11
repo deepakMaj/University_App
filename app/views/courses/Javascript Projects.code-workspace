@@ -1,0 +1,35 @@
+{
+	"folders": [
+		{
+			"name": "Number Guesser",
+			"path": "E:\\Modern JavaScript From The Beginning\\Javascript DOM Projects\\Number Guesser"
+		},
+		{
+			"name": "Task List",
+			"path": "E:\\Modern JavaScript From The Beginning\\Javascript DOM Projects\\Task List"
+		},
+		{
+			"name": "BookList",
+			"path": "E:\\Modern JavaScript From The Beginning\\Javascript  Projects\\BookList"
+		},
+		{
+			"name": "Javascript Examples",
+			"path": "E:\\Modern JavaScript From The Beginning\\Javascript  Projects\\Javascript Examples"
+		},
+		{
+			"name": "Loan Calculator",
+			"path": "E:\\Modern JavaScript From The Beginning\\Javascript  Projects\\Loan Calculator"
+		},
+		{
+			"name": "Github_User_Tracker",
+			"path": "E:\\Modern JavaScript From The Beginning\\Javascript  Projects\\Github_User_Tracker"
+		},
+		{
+			"path": "E:\\Modern JavaScript From The Beginning\\Javascript  Projects\\Weather Tracker"
+		}
+	],
+	"settings": {
+		"git.ignoreLimitWarning": true,
+		"liveServer.settings.multiRootWorkspaceName": "Javascript Examples"
+	}
+}
